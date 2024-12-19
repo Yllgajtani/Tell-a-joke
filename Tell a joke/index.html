@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<h1>Get a random joke</h1>
+<p id="joke"></p>
+<img id="jokes">
+
+    <script>
+           fetch('http://localhost:2424/joke')
+    .then(response => response.json())
+    .then(data =>{
+        const elemetet = document.getElementById('joke');
+        const fotot = document.getElementById('jokes')
+        elemetet.textContent = data.joke;
+        fotot.src = data.img;
+
+    })
+    </script>
+</body>
+</html>
